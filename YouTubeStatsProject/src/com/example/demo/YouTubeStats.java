@@ -18,7 +18,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.image.BufferedImage;
 
 public class YouTubeStats extends JFrame implements ActionListener {
-
     private static final String YOUTUBE_API_KEY = "AIzaSyAPnvPkcIBqAs6CkPYyvcKh9dLHQs5xhAE"; // My API key
     private static final String YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet%%2Cstatistics%%2CcontentDetails&id=%s&key=%s";
     private JTextField urlTextField;
@@ -52,6 +51,10 @@ public class YouTubeStats extends JFrame implements ActionListener {
 
         getInfoButton = new JButton("Get Info");
         getInfoButton.addActionListener(this);
+        // Attractive color for the "Get Info" button
+        getInfoButton.setBackground(new Color(70, 130, 180)); // Steel Blue
+        getInfoButton.setForeground(Color.WHITE);
+        getInfoButton.setFocusPainted(false); // Remove focus border for cleaner look
 
         JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         inputPanel.add(new JLabel("YouTube URL:"));
@@ -69,7 +72,6 @@ public class YouTubeStats extends JFrame implements ActionListener {
         descriptionTextArea.setWrapStyleWord(true);
         descriptionTextArea.setEditable(false);
         thumbnailUrlLabel = new JLabel("Thumbnail URL:");
-
         infoPanel.add(titleLabel);
         infoPanel.add(createSeparator());
         infoPanel.add(likesLabel);
